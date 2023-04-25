@@ -12,6 +12,7 @@ Move::Move(const std::string& input)
   player = toupper(player);
   in>>row;
   in>>column;
+  int col = stoi(column);
   if(number>9||number<1)
   {
           throw ParseError("Invalid number");
@@ -32,7 +33,7 @@ Move::Move(const std::string& input)
   {
           throw ParseError("Invalid row");
   }
-  if(column>="1"&&column<="3")
+  if(col>=1 &&col<= 3)
   {
        column = column;
   }
