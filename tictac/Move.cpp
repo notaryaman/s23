@@ -41,7 +41,7 @@ Move::Move(const std::string& input)
   {
           throw ParseError("Invalid column");
   }
-  if (!iss.eof())
+  if (!in.eof())
   {
     char nextChar;
     in >> nextChar;
@@ -55,6 +55,6 @@ Move::Move(const std::string& input)
 std::ostream& operator << (std::ostream& stream, const Move& move) 
 {
   stream<<move.number<<' '<<move.player<<' ';
-  stream<< <char>row<< <char>column;
+  stream<< row<< column;
   return stream;
 }
