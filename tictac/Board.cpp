@@ -1,23 +1,54 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include "Move.h"
-#include "Errors.h"
+#include "Board.h"
 
-bool checkWin(const std::vector<std::vector<char>>& board, char player) {
+Board::Board() {
     for (int i = 0; i < 3; ++i) {
-        if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) ||
-            (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
-            return true;
+        for (int j = 0; j < 3; ++j) {
+            grid[i][j] = '-';
         }
     }
+}
 
-    if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
-        (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
+bool Board::applyMove(const Move& move) {
+    if (grid[move.row][move.column] == '-') {
+        grid[move.row][move.column] = move.player;
         return true;
     }
+    return false;
+}
+
+bool Board::isWinningMove(const Move& move) const {
+    char player = move.player;
+    int row = move.row;
+    int column = move.column;
+
+    // Check row
+    if (grid[row][0] == player && grid[row][1] == player && grid[row][2] == player)
+        return true;
+
+    // Check column
+    if (grid[0][column] == player && grid[1][column] == player && grid[2][column] == player)
+        return true;
+
+    // Check diagonal
+    if (row == column && grid[0][0] == player && grid[1][1] == player && grid[2][2] == player)
+        return true;
+
+    // Check anti-diagonal
+    if (row + column == 2 && grid[0][2] == player && grid[1][1] == player && grid[2][0] == player)
+        return true;
 
     return false;
+}
+
+bool Board::isFull() const {
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            if (grid[i][j] == '-') {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 
