@@ -1,7 +1,8 @@
-#include "Board.h"
-#include "Errors.h"
 #include <iostream>
+#include <string>
+#include "Errors.h"
 #include "Move.h"
+#include "Board.h"
 
 int main() {
     Board board;
@@ -11,6 +12,11 @@ int main() {
     while (std::getline(std::cin, line)) {
         try {
             Move move(line);
+            if (move.player != nextPlayer) {
+                std::cout << "Invalid move." << std::endl;
+                return 2;
+            }
+
             if (!board.applyMove(move)) {
                 std::cout << "Invalid move." << std::endl;
                 return 2;
@@ -26,18 +32,16 @@ int main() {
                 return 0;
             }
 
-            nextPlayer = (move.player == 'X') ? 'O' : 'X';
-        }
-        catch (const ParseError&) {
+            nextPlayer = (nextPlayer == 'X') ? 'O' : 'X';
+        } catch (const ParseError& e) {
             std::cout << "Parse error." << std::endl;
             return 1;
         }
     }
 
-    if (nextPlayer == 'X' && line.empty()) {
+    if (nextPlayer == 'X') {
         std::cout << "Game in progress: New game." << std::endl;
-    }
-    else {
+    } else {
         std::cout << "Game in progress: " << nextPlayer << "'s turn." << std::endl;
     }
 
