@@ -1,7 +1,7 @@
 #include "Board.h"
 #include "Errors.h"
 #include "Move.h"
-
+#include <iostream>
 int main() 
 {
   std::vector<std::vector<char>> board(3, std::vector<char>(3, ' '));
