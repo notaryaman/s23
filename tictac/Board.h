@@ -7,9 +7,9 @@ class Board {
 public:
     Board();
 
-    bool applyMove(const Move& move);
-    bool isWinningMove(const Move& move) const;
-    bool isFull() const;
+    bool applyMove(Move& move);
+    bool isWinningMove(Move& move);
+    bool isFull();
 
 private:
     char grid[3][3];
