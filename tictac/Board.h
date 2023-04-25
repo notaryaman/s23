@@ -8,7 +8,7 @@ public:
     Board();
 
     bool applyMove(Move& move);
-    bool isWinningMove(Move& move);
+    bool isWinningMove(const Move& move);
     bool isFull();
 
 private:
