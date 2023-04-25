@@ -19,11 +19,7 @@ Move::Move(const std::string& input)
         throw ParseError("Invalid number");
     }
 
-    if (player == 'O' || player == 'X') 
-    {
-        player = player;
-    } 
-     else 
+    if (player != 'X' && player != 'O') 
     {
         throw ParseError("Invalid player");
     }
