@@ -1,6 +1,7 @@
 #include "Errors.h"
 #include "Move.h"
 #include <sstream>
+#include <cctype>
 using namespace std;
 // Space for implementing Move functions.
 
@@ -44,10 +45,16 @@ Move::Move(const std::string& input)
   if (!in.eof())
   {
     char nextChar;
+    char nxt;
     in >> nextChar;
-    if (nextChar != '#')
+    in >> nxt;
+    if (!isspace(nextChar))
     {
         throw ParseError("Invalid after column");
+    }
+    if(nxt != "#")
+    {
+      throw ParseError("Invalid after column");
     }
   }
 }
