@@ -55,6 +55,6 @@ Move::Move(const std::string& input)
 std::ostream& operator << (std::ostream& stream, const Move& move) 
 {
   stream<<move.number<<' '<<move.player<<' ';
-  stream<< row<< column;
+  stream<< move.row<< move.column;
   return stream;
 }
