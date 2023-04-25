@@ -52,7 +52,7 @@ Move::Move(const std::string& input)
     {
         throw ParseError("Invalid after column");
     }
-    if(nxt != "#")
+    if(nxt != '#')
     {
       throw ParseError("Invalid after column");
     }
