@@ -8,11 +8,11 @@ using namespace std;
 
 Move::Move(const std::string& input)
 {
-  std::getline(cin, input);
-  number = input[0];
-  player = input[2];
-  row = input[4];
-  column = input[5];
+  std::getline(cin, inp);
+  number = inp[0];
+  player = inp[2];
+  row = inp[4];
+  column = inp[5];
   player = toupper(player);
   string play = str(player);
   int col = column;
