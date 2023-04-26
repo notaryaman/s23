@@ -15,7 +15,6 @@ Move::Move(const std::string& input)
   row = inp[4];
   column = inp[5];
   player = toupper(player);
-  string play = str(player);
   int col = column;
   if(number>9||number<1)
   {
