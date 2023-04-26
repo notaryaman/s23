@@ -8,6 +8,7 @@ using namespace std;
 
 Move::Move(const std::string& input)
 {
+  string inp;
   std::getline(cin, inp);
   number = inp[0];
   player = inp[2];
