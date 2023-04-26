@@ -13,7 +13,7 @@ Move::Move(const std::string& input)
   player = toupper(player);
   in>>row;
   in>>column;
-  play = str(player);
+  string play = str(player);
     int col = column;
   string tot = itoa(number) + str(player)  + itoa(row) + itoa(column);
   if(tot.length()<6)
