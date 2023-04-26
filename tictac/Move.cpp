@@ -15,7 +15,7 @@ Move::Move(const std::string& input)
   in>>column;
   string play = str(player);
     int col = column;
-  string tot = itoa(number) + str(player)  + itoa(row) + itoa(column);
+  string tot = std::itoa(number) + str(player)  + itoa(row) + itoa(column);
   if(tot.length()<6)
   {
     throw ParseError("Invalid length");
