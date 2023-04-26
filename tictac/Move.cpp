@@ -2,24 +2,21 @@
 #include "Move.h"
 #include <sstream>
 #include <cctype>
+#include <iostream>
 using namespace std;
 // Space for implementing Move functions.
 
 Move::Move(const std::string& input)
 {
-  std::istringstream in(input);
-  in>>number;
-  in>>player;
+  string input;
+  std::getline(std::cin, input);
+  number = input[0];
+  player = input[2];
+  row = input[4];
+  column = input[5];
   player = toupper(player);
-  in>>row;
-  in>>column;
   string play = str(player);
-    int col = column;
-  string tot = std::itoa(number) + str(player)  + itoa(row) + itoa(column);
-  if(tot.length()<6)
-  {
-    throw ParseError("Invalid length");
-  }
+  int col = column;
   if(number>9||number<1)
   {
           throw ParseError("Invalid number");
@@ -48,7 +45,7 @@ Move::Move(const std::string& input)
   {
           throw ParseError("Invalid column");
   }
-  if (!in.eof())
+ /* if (!in.eof())
   {
     char nextChar;
     char nxt;
@@ -62,7 +59,7 @@ Move::Move(const std::string& input)
     {
       throw ParseError("Invalid after column");
     }
-  }
+  }*/
 }
 
 std::ostream& operator << (std::ostream& stream, const Move& move) 
