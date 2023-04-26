@@ -14,6 +14,11 @@ Move::Move(const std::string& input)
   in>>row;
   in>>column;
     int col = column;
+  string tot = itoa(number) + str(player)  + itoa(row) + itoa(column);
+  if(tot.length()<6)
+  {
+    throw ParseError("Invalid length");
+  }
   if(number>9||number<1)
   {
           throw ParseError("Invalid number");
