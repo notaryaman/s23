@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "Errors.h"
 #include "Move.h"
 #include "Board.h"
 
@@ -14,7 +13,7 @@ int main()
     {
         try {
             Move move(line);
-            if (move.player != nextPlayer)
+            if (!move.isValid() || move.player != nextPlayer)
             {
                 std::cout << "Invalid move." << std::endl;
                 return 2;
@@ -40,7 +39,7 @@ int main()
 
             nextPlayer = (nextPlayer == 'X') ? 'O' : 'X';
         } 
-        catch (const ParseError& e)
+        catch (const std::exception& e)
         {
             std::cout << "Parse error." << std::endl;
             return 1;
