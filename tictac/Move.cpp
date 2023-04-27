@@ -28,9 +28,13 @@ Move::Move(const std::string& input)
   {
     throw ParseError("Invalid length");
   }
-  if(number>9||number<1)
+  if(number<=9 && number>=1)
   {
-          throw ParseError("Invalid number");
+          number=number;
+  }
+  else
+  {
+    throw ParseError("Invalid number");
   }
   if(player == 'O' || player == 'X')
   {
