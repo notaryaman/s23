@@ -14,7 +14,7 @@ Move::Move(const std::string& input)
   column = input.at(5);
   player = toupper(player);
   int col = column;
-  size_t len = input.len();
+  size_t len = input.length();
   if(len<6)
   {
     throw ParseError("Invalid length");
