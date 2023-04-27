@@ -1,19 +1,19 @@
-#ifndef BOARD_H
-#define BOARD_H
+#include <iostream>
 
-#include "Move.h"
-
-class Board {
+class Move {
 public:
-    Board();
+    int row, col;
 
-    bool applyMove(Move& move);
-    bool isWinningMove(const Move& move);
-    bool isFull();
-
-private:
-    char grid[3][3];
+    Move(int row, int col) : row(row), col(col) {}
 };
 
-#endif // BOARD_H
+std::ostream &operator<<(std::ostream &os, const Move &move) {
+    os << "Move(row: " << move.row << ", col: " << move.col << ")";
+    return os;
+}
 
+int main(int argc, char **argv) {
+    Move move(1, 2);
+    std::cout << move << '\n';
+    return 0;
+}
