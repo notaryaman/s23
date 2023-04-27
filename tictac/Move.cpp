@@ -8,12 +8,10 @@ using namespace std;
 
 Move::Move(const std::string& input)
 {
-  string inp;
-  std::getline(cin, inp);
-  number = inp.at(0);
-  player = inp.at(2);
-  row = inp.at(4);
-  column = inp.at(5);
+  number = input.at(0);
+  player = input.at(2);
+  row = input.at(4);
+  column = input.at(5);
   player = toupper(player);
   int col = column;
   if(number>9||number<1)
