@@ -24,7 +24,7 @@ Move::Move(const std::string& input)
         throw ParseError("Invalid structure");
      }
     
-  if(len<6)
+  if(len<5)
   {
     throw ParseError("Invalid length");
   }
