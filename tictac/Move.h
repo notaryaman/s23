@@ -7,7 +7,7 @@ class Move {
 public:
     Move(const std::string& line);
 
-    int moveNumber;
+    int number;
     char player;
     int row;
     int column;
