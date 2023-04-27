@@ -16,10 +16,6 @@ Move::Move(const std::string& input)
   column = inp[5];
   player = toupper(player);
   int col = column;
-  if(inp.length()<6)
-  {
-    throw ParseError("Not long enough");
-  }
   if(number>9||number<1)
   {
           throw ParseError("Invalid number");
