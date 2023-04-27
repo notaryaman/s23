@@ -10,10 +10,10 @@ Move::Move(const std::string& input)
 {
   string inp;
   std::getline(cin, inp);
-  number = inp[0];
-  player = inp[2];
-  row = inp[4];
-  column = inp[5];
+  number = inp.at(0);
+  player = inp.at(2);
+  row = inp.at(4);
+  column = inp.at(5);
   player = toupper(player);
   int col = column;
   if(number>9||number<1)
