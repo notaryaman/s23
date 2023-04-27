@@ -15,6 +15,15 @@ Move::Move(const std::string& input)
   player = toupper(player);
   int col = column;
   size_t len = input.length();
+  if(!isspace(input.at(1))
+     {
+        throw ParseError("Invalid structure");
+     }
+  if(!isspace(input.at(3))
+     {
+        throw ParseError("Invalid structure");
+     }
+    
   if(len<6)
   {
     throw ParseError("Invalid length");
