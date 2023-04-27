@@ -3,13 +3,6 @@
 #include "Move.h"
 #include "Board.h"
 
-bool isValidMove(const Move& move, char expectedPlayer) {
-    return move.moveNumber >= 1 && move.moveNumber <= 9 &&
-           move.player == expectedPlayer &&
-           move.row >= 0 && move.row < 3 &&
-           move.column >= 0 && move.column < 3;
-}
-
 int main()
 {
     Board board;
@@ -20,7 +13,7 @@ int main()
     {
         try {
             Move move(line);
-            if (!isValidMove(move, nextPlayer))
+            if (!move.isValid(nextPlayer))
             {
                 std::cout << "Invalid move." << std::endl;
                 return 2;
