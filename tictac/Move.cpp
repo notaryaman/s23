@@ -28,6 +28,24 @@ Move::Move(const std::string& input)
   {
     throw ParseError("Invalid length");
   }
+  if(len>6)
+  {
+    if(isspace(input.at(6)))
+    {
+      if(input.at(7) == '#')
+      {
+        len = len;
+      }
+      else
+      {
+        throw ParseError("Invalid comment");
+      }
+    }
+    else
+    {
+      throw ParseError("Invalid comment");
+    }
+  }
   if(number<=9 && number>=1)
   {
           number=number;
